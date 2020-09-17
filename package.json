@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node ./bin/www",
+		"dev": "nodemon ./bin/www",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
@@ -15,6 +16,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.20.0",
+		"cors": "^2.8.5",
 		"debug": "~2.6.9",
 		"express": "~4.16.1",
 		"morgan": "~1.9.1"
@@ -22,6 +24,7 @@
 	"devDependencies": {
 		"dotenv": "^8.2.0",
 		"husky": "^4.3.0",
-		"jest": "^26.4.2"
+		"jest": "^26.4.2",
+		"nodemon": "^2.0.4"
 	}
 }
