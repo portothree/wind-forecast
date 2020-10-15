@@ -1,7 +1,7 @@
 const { getLatestGrib } = require('./utils.js');
 
 function main() {
-	const gribPath = 'tmp/latest.grib2';
+	const gribPath = `${process.env.TMP_PATH}/latest.grib2`;
 
 	const now = new Date();
 	const year = now.getFullYear();
