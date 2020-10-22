@@ -30,9 +30,10 @@ function getLatestGrib(outputPath, date, period) {
 }
 
 function convertGribToJson(gribPath, outputPath) {
+	// Maximum buffer of 5MB
 	exec(
 		`converter/bin/grib2json --data --output ${outputPath} --names --compact ${gribPath}`,
-		{ maxBuffer: 500 * 1024 }
+		{ maxBuffer: 5000 * 1024 }
 	);
 
 	return 0;
