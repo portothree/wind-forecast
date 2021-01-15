@@ -5,14 +5,14 @@ const { getLatestGrib, convertGribToJson } = require('./utils.js');
 const gribPath = `${process.env.TMP_PATH}/latest.grib2`;
 
 // Download new GFS data from NCEP in grib2 format
-cron.schedule('0 */5 * * *', () => {
+cron.schedule('0 */5 * * *', async () => {
 	const now = new Date();
 	const year = now.getFullYear();
-	const month = now.getMonth() + 1;
+	const month = ('0' + now.getMonth() + 1).slice(-2);
 	const day = now.getDate();
 
 	try {
-		getLatestGrib(gribPath, `${year}${month}${day}`, '00');
+		await getLatestGrib(gribPath, `${year}${month}${day}`, '00');
 	} catch (error) {
 		process.exit(1);
 	}
