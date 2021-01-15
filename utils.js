@@ -5,22 +5,6 @@ const exec = require('child_process').exec;
 const noaa = require('./configs/noaa');
 
 function getLatestGrib(outputPath, date, period) {
-	console.log({
-		file: `gfs.t${period}z.pgrb2.1p00.f000`,
-		lev_10_m_above_ground: 'on',
-		lev_surface: 'on',
-		var_TMP: 'on',
-		var_UGRD: 'on',
-		var_VGRD: 'on',
-		leftlon: 0,
-		rightlon: 360,
-		toplat: 90,
-		bottomlat: -90,
-		dir: `/gfs.${date}/${period}`,
-	});
-
-	console.log(outputPath);
-
 	return axios
 		.get(noaa.baseDir, {
 			params: {
