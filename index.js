@@ -8,7 +8,7 @@ const gribPath = `${process.env.TMP_PATH}/latest.grib2`;
 cron.schedule('0 */5 * * *', async () => {
 	const now = new Date();
 	const year = now.getFullYear();
-	const month = ('0' + now.getMonth() + 1).slice(-2);
+	const month = ('0' + (now.getMonth() + 1)).slice(-2);
 	const day = now.getDate();
 
 	try {
