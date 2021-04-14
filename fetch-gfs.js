@@ -14,6 +14,7 @@ const gribPath = `${process.env.TMP_PATH}/latest.grib2`;
 		await getLatestGrib(gribPath, `${year}${month}${day}`, '00');
 		console.log("New GFS data from NCEP downloaded with success");
 	} catch (error) {
+		console.log(error);
 		process.exit(1);
 	}
 })();

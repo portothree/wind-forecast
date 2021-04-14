@@ -18,7 +18,7 @@ function getLatestGrib(outputPath, date, period) {
 				rightlon: 360,
 				toplat: 90,
 				bottomlat: -90,
-				dir: `/gfs.${date}/${period}`,
+				dir: `/gfs.${date}/${period}/atmos`,
 			},
 			responseType: 'stream',
 		})
@@ -28,9 +28,10 @@ function getLatestGrib(outputPath, date, period) {
 }
 
 function convertGribToJson(gribPath, outputPath) {
+	// Maximum buffer of 500MB
 	exec(
 		`converter/bin/grib2json --data --output ${outputPath} --names --compact ${gribPath}`,
-		{ maxBuffer: 500 * 1024 }
+		{ maxBuffer: 500000 * 1024 }
 	);
 
 	return 0;
