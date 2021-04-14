@@ -18,7 +18,7 @@ function getLatestGrib(outputPath, date, period) {
 				rightlon: 360,
 				toplat: 90,
 				bottomlat: -90,
-				dir: `/gfs.${date}/${period}`,
+				dir: `/gfs.${date}/${period}/atmos`,
 			},
 			responseType: 'stream',
 		})
