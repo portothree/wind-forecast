@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 const noaa = require('./configs/noaa');
 
 function getLatestGrib(outputPath, date, period) {
-	axios
+	return axios
 		.get(noaa.baseDir, {
 			params: {
 				file: `gfs.t${period}z.pgrb2.1p00.f000`,
@@ -25,8 +25,6 @@ function getLatestGrib(outputPath, date, period) {
 		.then(response => {
 			response.data.pipe(fs.createWriteStream(outputPath));
 		});
-
-	return outputPath;
 }
 
 function convertGribToJson(gribPath, outputPath) {
