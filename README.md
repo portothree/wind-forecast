@@ -34,3 +34,7 @@ PORT=""
 
 TMP_PATH=""
 ```
+
+## Notes
+
+Check for the environment variable `JAVA_HOME` as it can differ from java versions and it can cause the grib2json converter to silently fail
